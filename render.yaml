@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: tinh-tam-api-bluexdeev254334
+    runtime: node
+    plan: starter
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /
+    disk:
+      name: tinh-tam-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: /var/data
+      - key: ALLOWED_ORIGIN
+        value: https://bluexdeev254334.github.io
+      - key: TRUSTED_PROXY_HEADER
+        value: x-forwarded-for
+      - key: LOG_RETENTION_DAYS
+        value: "90"
+      - key: ADMIN_USERNAME
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: ADMIN_TOTP_SECRET
+        sync: false

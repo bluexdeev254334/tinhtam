@@ -1,0 +1,15 @@
+{
+  "name": "tinh-tam",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Không gian tĩnh tâm trực tuyến",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

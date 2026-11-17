@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="Một góc nhỏ để tĩnh tâm, gõ mõ và gửi điều ước an lành.">
+  <title>Tĩnh Tâm — Một phút an nhiên</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Tĩnh Tâm - trang chủ">
+      <span class="brand-mark" aria-hidden="true">✿</span><span>Tĩnh Tâm</span>
+    </a>
+    <div class="top-actions">
+      <span class="greeting" id="greeting">Chúc bạn một ngày an nhiên</span>
+      <button class="icon-button" id="theme-toggle" aria-label="Chuyển chế độ sáng tối" title="Sáng / tối">☼</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="welcome-shell" id="welcome" aria-labelledby="welcome-title">
+      <div class="welcome-art" aria-hidden="true"><span>☾</span><b>✿</b><i></i></div>
+      <p class="eyebrow">DỪNG LẠI · THỞ SÂU · AN NHIÊN</p>
+      <h1 id="welcome-title">Một phút cho<br><em>tâm mình an yên</em></h1>
+      <p class="welcome-copy">Gác lại những bộn bề. Nơi đây luôn có một khoảng lặng dành cho bạn.</p>
+      <form class="welcome-form" id="welcome-form">
+        <label for="name-input">Tên của bạn <span>(không bắt buộc)</span></label>
+        <input id="name-input" name="name" maxlength="60" autocomplete="given-name" placeholder="Ví dụ: An" aria-describedby="name-help">
+        <small id="name-help">Tên giúp chúng mình gửi lời chào thân thuộc hơn.</small>
+        <button class="button button-gold button-wide" type="submit">Bắt đầu <span aria-hidden="true">→</span></button>
+        <button class="text-button" type="button" id="skip-button">Bỏ qua, cứ gọi mình là bạn</button>
+      </form>
+      <div class="privacy-notice" id="consent-box">
+        <div><span class="notice-icon" aria-hidden="true">♧</span><p><strong>Quyền riêng tư của bạn</strong><br>Chỉ khi đồng ý, chúng mình mới lưu tên, mã thiết bị, dấu hiệu trình duyệt (gồm canvas/âm thanh nhẹ) và IP để ghi nhớ bạn, thống kê. Từ chối vẫn dùng đầy đủ.</p></div>
+        <div class="notice-actions"><button class="button button-small button-outline" id="decline-consent">Từ chối</button><button class="button button-small button-gold" id="accept-consent">Đồng ý</button></div>
+        <a href="#privacy" id="privacy-link">Tìm hiểu chính sách quyền riêng tư</a>
+      </div>
+    </section>
+
+    <section class="app-shell hidden" id="app" aria-label="Không gian tĩnh tâm">
+      <div class="welcome-back hidden" id="welcome-back" role="status"></div>
+      <div class="page-view active" id="page-meditate">
+        <div class="page-heading">
+          <p class="eyebrow">KHOẢNH KHẮC HIỆN TẠI</p>
+          <h1>Thở vào thật sâu,<br><em>thở ra thật nhẹ.</em></h1>
+          <p>Chạm vào mõ để gửi một niệm lành.</p>
+        </div>
+        <div class="meditation-layout">
+          <section class="gong-card" aria-label="Gõ mõ">
+            <div class="milestone hidden" id="milestone" aria-live="polite"><span>✿</span><b>108</b><small>một vòng an nhiên</small></div>
+            <button class="gong" id="gong" aria-label="Gõ mõ — chạm hoặc nhấn phím cách">
+              <span class="gong-halo"></span><span class="gong-symbol">◉</span><span class="gong-label">CHẠM ĐỂ GÕ MÕ</span>
+            </button>
+            <div class="merit-float" id="merit-float" aria-hidden="true"></div>
+            <div class="counter-row">
+              <div><strong id="total-count">0</strong><span>Tổng công đức</span></div>
+              <div class="counter-divider"></div>
+              <div><strong id="today-count">0</strong><span>Hôm nay</span></div>
+            </div>
+          </section>
+          <aside class="practice-controls">
+            <div class="control-card">
+              <div class="control-title"><span>☼</span><div><strong>Âm thanh</strong><small>Âm mõ dịu nhẹ</small></div></div>
+              <div class="volume-row"><button id="sound-toggle" class="sound-toggle" aria-pressed="true" aria-label="Tắt âm thanh">♫</button><input id="volume" type="range" min="0" max="1" step="0.05" value="0.55" aria-label="Âm lượng"></div>
+            </div>
+            <div class="control-card">
+              <div class="control-title"><span>⟳</span><div><strong>Tự động gõ</strong><small>Nhịp thở của riêng bạn</small></div></div>
+              <div class="auto-row"><select id="auto-speed" aria-label="Nhịp tự động"><option value="2400">Chậm</option><option value="1500" selected>Vừa</option><option value="850">Nhanh</option></select><button class="button button-small button-outline" id="auto-toggle" aria-pressed="false">Bắt đầu</button></div>
+            </div>
+            <div class="practice-note"><span aria-hidden="true">✧</span> Mỗi tiếng mõ là một lần trở về với hiện tại.</div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="page-view hidden" id="page-chant">
+        <div class="page-heading"><p class="eyebrow">LẮNG NGHE · TỤNG NIỆM</p><h1>Bát Nhã<br><em>Tâm Kinh</em></h1><p>Dành một khoảng lặng để lời kinh chạm đến tâm mình.</p></div>
+        <section class="sutra-card">
+          <div class="audio-controls">
+            <button class="play-button" id="chant-play" aria-label="Phát lời kinh">▶</button>
+            <div class="audio-meta"><strong>Bát Nhã Tâm Kinh</strong><small id="audio-state">Bản tụng sẽ được bổ sung</small></div>
+            <label class="loop-label"><input type="checkbox" id="chant-loop"> Lặp lại</label>
+          </div>
+          <input class="chant-volume" type="range" min="0" max="1" step="0.05" value="0.7" aria-label="Âm lượng lời kinh">
+          <audio id="chant-audio" preload="none" src="./audio/bat-nha-tam-kinh.mp3"></audio>
+          <div class="sutra-text" id="sutra-text" tabindex="0" aria-label="Lời Bát Nhã Tâm Kinh">
+            <p>Quán Tự Tại Bồ Tát, hành thâm Bát Nhã Ba La Mật Đa thời, chiếu kiến ngũ uẩn giai không, độ nhất thiết khổ ách.</p>
+            <p>Xá Lợi Tử! Sắc bất dị không, không bất dị sắc; sắc tức thị không, không tức thị sắc. Thọ, tưởng, hành, thức, diệc phục như thị.</p>
+            <p>Xá Lợi Tử! Thị chư pháp không tướng, bất sanh bất diệt, bất cấu bất tịnh, bất tăng bất giảm.</p>
+            <p>Thị cố không trung vô sắc, vô thọ, tưởng, hành, thức; vô nhãn, nhĩ, tỷ, thiệt, thân, ý; vô sắc, thanh, hương, vị, xúc, pháp.</p>
+            <p>Vô nhãn giới, nãi chí vô ý thức giới; vô vô minh, diệc vô vô minh tận, nãi chí vô lão tử, diệc vô lão tử tận.</p>
+            <p>Vô khổ, tập, diệt, đạo; vô trí diệc vô đắc. Dĩ vô sở đắc cố, Bồ Đề Tát Đỏa y Bát Nhã Ba La Mật Đa cố, tâm vô quái ngại.</p>
+            <p>Vô quái ngại cố, vô hữu khủng bố, viễn ly điên đảo mộng tưởng, cứu cánh Niết Bàn. Tam thế chư Phật, y Bát Nhã Ba La Mật Đa cố, đắc A Nậu Đa La Tam Miệu Tam Bồ Đề.</p>
+            <p>Cố tri Bát Nhã Ba La Mật Đa, thị đại thần chú, thị đại minh chú, thị vô thượng chú, thị vô đẳng đẳng chú, năng trừ nhất thiết khổ, chân thật bất hư.</p>
+            <p>Cố thuyết Bát Nhã Ba La Mật Đa chú, tức thuyết chú viết: Yết Đế Yết Đế, Ba La Yết Đế, Ba La Tăng Yết Đế, Bồ Đề Tát Bà Ha.</p>
+          </div>
+          <p class="audio-fallback hidden" id="audio-fallback">Hiện chưa có tệp âm thanh. Bạn vẫn có thể đọc lời kinh trong sự tĩnh lặng.</p>
+        </section>
+        <p class="source-note">Bản âm Hán-Việt thông dụng; bạn có thể thay tệp âm thanh tại <code>public/audio/</code>.</p>
+      </div>
+
+      <div class="page-view hidden" id="page-wishes">
+        <div class="page-heading"><p class="eyebrow">GỬI ĐIỀU LÀNH VÀO ĐÊM</p><h1>Viết một điều ước<br><em>cho tâm mình.</em></h1><p>Điều ước chỉ mình bạn và quản trị viên có thể xem.</p></div>
+        <section class="wish-compose">
+          <label for="wish-input">Điều ước của bạn</label>
+          <textarea id="wish-input" maxlength="200" rows="4" placeholder="Mong cho những người mình thương luôn bình an..."></textarea>
+          <div class="wish-compose-bottom"><span><b id="wish-length">0</b> / 200 ký tự</span><button class="button button-gold" id="wish-submit">Gửi điều ước <span aria-hidden="true">✧</span></button></div>
+        </section>
+        <div class="wish-sky hidden" id="wish-sky" aria-hidden="true"><span>✦</span><span>✧</span><span>·</span><span>✦</span><div class="lantern">♡</div></div>
+        <section class="wish-list-section"><div class="section-title"><h2>Những điều ước của tôi</h2><span id="wish-total">0 điều ước</span></div><div class="wish-list" id="wish-list"></div></section>
+      </div>
+
+      <div class="page-view hidden" id="page-settings">
+        <div class="page-heading"><p class="eyebrow">GÓC RIÊNG CỦA BẠN</p><h1>Cài đặt<br><em>an yên.</em></h1></div>
+        <section class="settings-card">
+          <h2>Thông tin của bạn</h2>
+          <form id="rename-form" class="rename-form"><label for="rename-input">Tên hiển thị</label><div><input id="rename-input" maxlength="60" placeholder="Tên của bạn"><button class="button button-gold button-small">Cập nhật</button></div></form>
+          <div class="settings-row"><div><strong>Dữ liệu trên thiết bị</strong><small id="consent-status">Đang kiểm tra</small></div><button class="button button-outline button-small" id="delete-data">Xoá dữ liệu của tôi</button></div>
+          <p class="settings-hint">Thao tác này xoá hồ sơ, lượt gõ mõ, điều ước trên máy chủ và dữ liệu lưu trên thiết bị.</p>
+        </section>
+        <section class="settings-card privacy-page" id="privacy"><h2>Chính sách quyền riêng tư</h2><p>Nếu bạn đồng ý, Tĩnh Tâm lưu tên, mã thiết bị ngẫu nhiên, một dấu hiệu nhận diện tạo từ trình duyệt, ngôn ngữ, kích thước màn hình, múi giờ và tín hiệu canvas/âm thanh nhẹ, địa chỉ IP, lượt gõ mõ và điều ước. Dữ liệu dùng để ghi nhớ bạn, đồng bộ hoạt động và vận hành dịch vụ; không công khai điều ước.</p><p>Nếu bạn từ chối, không gửi thông tin định danh hay hoạt động lên máy chủ; tiến độ và điều ước chỉ lưu trên thiết bị. Bạn có thể xoá dữ liệu bất cứ lúc nào trong Cài đặt. Nhật ký máy chủ được tự động dọn sau số ngày cấu hình.</p><p>IP không tự đăng nhập bạn; nếu chỉ khớp IP, Tĩnh Tâm sẽ hỏi xác nhận và chỉ hiển thị tên đã che bớt. Không tra cứu vị trí IP hay chia sẻ dữ liệu với font/CDN bên thứ ba.</p></section>
+      </div>
+
+      <nav class="bottom-nav" aria-label="Điều hướng chính">
+        <button class="nav-item active" data-page="meditate"><span>◉</span><small>Tĩnh tâm</small></button>
+        <button class="nav-item" data-page="chant"><span>♫</span><small>Tụng kinh</small></button>
+        <button class="nav-item" data-page="wishes"><span>✧</span><small>Điều ước</small></button>
+        <button class="nav-item" data-page="settings"><span>☼</span><small>Cài đặt</small></button>
+      </nav>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog class="confirm-dialog" id="ip-confirm">
+    <span class="dialog-flower" aria-hidden="true">✿</span><h2>Chào bạn</h2>
+    <p id="ip-confirm-text">Có phải bạn là ...?</p>
+    <p class="dialog-hint">Chỉ dựa trên địa chỉ IP nên chúng mình sẽ không tự nhận diện bạn.</p>
+    <div class="dialog-actions"><button class="button button-outline" id="ip-no">Không phải</button><button class="button button-gold" id="ip-yes">Đúng</button></div>
+  </dialog>
+  <dialog class="confirm-dialog privacy-dialog" id="privacy-dialog">
+    <span class="dialog-flower" aria-hidden="true">✿</span><h2>Chính sách quyền riêng tư</h2>
+    <div><p>Nếu bạn đồng ý, Tĩnh Tâm lưu tên, mã thiết bị ngẫu nhiên, dấu hiệu nhận diện từ user agent, ngôn ngữ, màn hình, múi giờ và tín hiệu canvas/âm thanh nhẹ, địa chỉ IP, lượt gõ mõ và điều ước. Dữ liệu giúp ghi nhớ bạn và đồng bộ hoạt động; điều ước không công khai.</p><p>Nếu từ chối, không gửi dữ liệu định danh hay hoạt động lên máy chủ; dữ liệu chỉ lưu trên thiết bị. Bạn có thể xoá dữ liệu bất cứ lúc nào trong Cài đặt.</p><p>IP không tự đăng nhập bạn; nếu chỉ khớp IP, chúng mình sẽ hỏi xác nhận và chỉ hiện tên đã che bớt. Không tra cứu vị trí IP hay chia sẻ dữ liệu với dịch vụ font/CDN bên thứ ba.</p></div>
+    <div class="dialog-actions"><button class="button button-gold" id="privacy-close">Đã hiểu</button></div>
+  </dialog>
+  <script src="./config.js" defer></script>
+  <script src="./app.js" defer></script>
+</body>
+</html>

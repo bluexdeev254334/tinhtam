@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111827">
+  <title>Quản trị — Tĩnh Tâm</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="admin-body">
+  <main class="admin-wrap">
+    <section class="admin-login" id="admin-login">
+      <a class="brand" href="./" aria-label="Trở về Tĩnh Tâm"><span class="brand-mark">✿</span><span>Tĩnh Tâm</span></a>
+      <p class="eyebrow">KHU VỰC RIÊNG TƯ</p><h1>Đăng nhập<br><em>quản trị.</em></h1>
+      <form id="login-form"><label for="admin-user">Tên đăng nhập</label><input id="admin-user" autocomplete="username" required><label for="admin-pass">Mật khẩu</label><input id="admin-pass" type="password" autocomplete="current-password" required><label for="admin-totp">Mã xác thực 2 lớp <span>(nếu đã bật)</span></label><input id="admin-totp" inputmode="numeric" autocomplete="one-time-code" maxlength="6"><button class="button button-gold button-wide">Đăng nhập</button><p class="admin-error" id="login-error" role="alert"></p></form>
+      <a class="back-link" href="./">← Trở về trang chủ</a>
+    </section>
+    <section class="admin-panel hidden" id="admin-panel">
+      <header class="admin-header"><div><a class="brand" href="./"><span class="brand-mark">✿</span><span>Tĩnh Tâm</span></a><p class="eyebrow">BẢNG ĐIỀU KHIỂN</p></div><button class="button button-outline button-small" id="admin-logout">Đăng xuất</button></header>
+      <div class="admin-tabs"><button class="active" data-admin-tab="overview">Tổng quan</button><button data-admin-tab="users">Người dùng</button><button data-admin-tab="logs">Nhật ký</button></div>
+      <section class="admin-view" id="admin-overview"><div class="stat-grid" id="stat-grid"></div><section class="admin-card"><div class="section-title"><h2 id="chart-title">Hoạt động</h2><select id="chart-period" aria-label="Khoảng thời gian biểu đồ"><option value="day">Theo ngày</option><option value="week">Theo tuần</option><option value="month">Theo tháng</option></select></div><div class="chart" id="chart" aria-label="Biểu đồ hoạt động"></div><div class="chart-legend"><span>● Truy cập</span><span>● Gõ mõ</span></div></section></section>
+      <section class="admin-view hidden" id="admin-users"><div class="admin-card"><div class="section-title"><h2>Danh sách người dùng</h2><button class="button button-outline button-small" id="export-users">Xuất CSV</button></div><div class="user-filters"><input class="search-input" id="user-search" placeholder="Tìm tên, IP hoặc mã thiết bị..." aria-label="Tìm kiếm người dùng"><label>Từ ngày <input type="date" id="user-from"></label><label>Đến ngày <input type="date" id="user-to"></label><select id="user-sort" aria-label="Sắp xếp"><option value="last">Truy cập gần nhất</option><option value="first">Ngày tham gia</option><option value="beads">Lượt gõ mõ</option><option value="name">Tên A–Z</option></select></div><div class="table-wrap"><table><thead><tr><th>Tên</th><th>Device ID</th><th>Trình duyệt / thiết bị</th><th>Fingerprint</th><th>IP gần nhất</th><th>IP đã dùng</th><th>Lần đầu</th><th>Lần cuối</th><th>Lượt truy cập</th><th>Lượt gõ</th><th>Điều ước</th><th></th></tr></thead><tbody id="users-table"></tbody></table></div><div class="pagination"><button class="button button-outline button-small" id="page-prev">← Trước</button><span id="page-label"></span><button class="button button-outline button-small" id="page-next">Sau →</button></div><p class="empty-state hidden" id="users-empty">Chưa có người dùng nào đồng ý lưu dữ liệu.</p><div class="user-detail hidden" id="user-detail"></div></div></section>
+      <section class="admin-view hidden" id="admin-logs"><div class="admin-card"><div class="section-title"><h2>Nhật ký hoạt động</h2><span>Lưu tối đa 90 ngày · mới nhất trước</span></div><div class="table-wrap"><table><thead><tr><th>Thời gian</th><th>IP</th><th>Thiết bị</th><th>Trang</th><th>Hoạt động</th></tr></thead><tbody id="logs-table"></tbody></table></div></div></section>
+    </section>
+    <div class="toast" id="admin-toast" role="status"></div>
+  </main>
+  <script src="./admin.js" defer></script>
+</body>
+</html>
